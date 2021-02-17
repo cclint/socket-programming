@@ -10,7 +10,7 @@ import time
 # connect to the ROBOT TCP Port 3310 and send your 
 # BlazerID via the connection established.
 #serverName = '25.3.242.102' # Hamachi
-serverName = '192.168.1.5' # clint93 local
+serverName = input('Pleaser enter the server IP: ') # clint93 local
 blazerid = 'clint93'
 HOST = '' # Symbolic name meaning all available interfaces
 serverPort = 3310 
@@ -21,6 +21,7 @@ def part2():
 	# The second parameter indicates that the socket is of type SOCK_STREAM, meaning it is a TCP Socket
 	# Note: Here I am not specifying the port number of the client socket when creating it; I'm instead letting the
 	# operating system do this for me. 
+	print("")
 	print("Creating the client socket")
 	s1 = socket(AF_INET, SOCK_STREAM)
 
@@ -40,7 +41,7 @@ def part2():
 	blazerid1 = blazerid.encode()
 	print("Sending blazerid to ROBOT")
 	s1.send(blazerid1)
-
+	print("")
 	# Yes, this closes the TCP connection between the client and the server. 
 	# When the connection is terminated, it causes TCP in the client to send a TCP 
 	# message to the TCP in the server. 
@@ -69,6 +70,7 @@ def part3(s1):
 	s2, address = s_2.accept() # accepts the new TCP connection
 	studentIP = address[0]
 	print("\nClient from %s at port %d connected" %(studentIP,address[1]))
+	print("")
 	return s2
 
 def part4(s2):
@@ -92,9 +94,10 @@ def part4(s2):
 	num = str((random.randint(5,9))).encode()
 
 	# sends num to '192.168.1.80' on port fffff
-	print("Sending message to port fffff")
+	print("Sending num to port fffff")
 	s3.sendto(num,(serverName, ServerPortfffff)) 
-	print('Done')
+	print('sent!')
+	print("")
 
 	# when the packet arrives from the internet at the client's socket, 
 	# the packet's data is put into the variable 
@@ -108,6 +111,7 @@ def part4(s2):
 	s_3.bind((HOST, ServerPorteeeee))  # binds the port number eeeee to the server's socket
 	modifiedMessage, serverAddress = s_3.recvfrom(2048)
 	print('Recieved packets from s_3 port eeeee:' + modifiedMessage.decode()) # prints the string recieved from robot on UDP connection s_3
+	print("")
 	return s3,modifiedMessage,ServerPortfffff
 	
 def part5(s3,modifiedMessage,ServerPortfffff):
