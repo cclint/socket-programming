@@ -12,6 +12,8 @@ import time
 # serverName = '25.3.242.102' # Hamachi
 serverName = input("Pleaser enter the server IP: ")
 blazerid = "clint93"
+#hostname = socket.gethostname()
+#ip_address = socket.gethostbyname(hostname)
 HOST = ""  # Symbolic name meaning all available interfaces
 serverPort = 3310
 
