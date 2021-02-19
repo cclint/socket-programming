@@ -45,10 +45,11 @@ def part2():
 	# Yes, this closes the TCP connection between the client and the server. 
 	# When the connection is terminated, it causes TCP in the client to send a TCP 
 	# message to the TCP in the server. 
-	#clientSocket.close()
+	print(type(s1))
 	return s1
 
-def part3(s1):
+def part3(s1: socket) -> socket:
+
 	# when characters arrive from the server, they get placed into the string serverPort2.
 	# characters continue to accumulate in serverPort2 until the ilne ends with a carriage return character.
 	serverPort2 = int(s1.recv(1024))
@@ -73,11 +74,11 @@ def part3(s1):
 	print("")
 	return s2
 
-def part4(s2):
+def part4(s2: socket) -> socket:
 	# capture the data sent from robot on the new connection 
 	UDPConnection1 = s2.recv(2048).decode().split(',') # ffffff,eeeeee
-
-	# code to split UDPC comma delimted string into two different variables of type int
+	print(UDPConnection1)
+	# code to split UDPC comma delimted string into two different variables
 	UDPC1 = list(map(int, UDPConnection1))
 	ServerPortfffff = UDPC1[0]
 	ServerPorteeeee = UDPC1[1]
@@ -123,15 +124,20 @@ def part5(s3,modifiedMessage,ServerPortfffff):
 	print("Finished")
 
 
+def main(): 
+    return 
+
+
 if __name__ == "__main__": 
 	skt1 = part2()
 	skt2 = part3(skt1)
 	skt3,message,ServerPortfffff = part4(skt2)
 	part5(skt3,message,ServerPortfffff)
+	
  
 	# CLOSE SOCKETS HERE .close() OR USE WITH STATEMENTS IN FUNCTIONS 
  
 	# Yes, this closes the TCP connection between the client and the server. 
 	# When the connection is terminated, it causes TCP in the client to send a TCP 
 	# message to the TCP in the server. 
-	#s1.close()
+	
