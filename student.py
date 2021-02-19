@@ -131,7 +131,7 @@ def part5(s3, modifiedMessage, ServerPortfffff):
     print("Finished")
 
 
-def main(): # entry point of the program and closes each socket at the end
+def main(): # entry point of the program
     socket_1 = part2()
     socket_2 = part3(socket_1)
     socket_3, message, ServerPortfffff = part4(socket_2)
