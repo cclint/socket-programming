@@ -10,7 +10,7 @@ import time
 # connect to the ROBOT TCP Port 3310 and send your 
 # BlazerID via the connection established.
 #serverName = '25.3.242.102' # Hamachi
-serverName = input('Pleaser enter the server IP: ') # clint93 local
+serverName = input('Pleaser enter the server IP: ') 
 blazerid = 'clint93'
 HOST = '' # Symbolic name meaning all available interfaces
 serverPort = 3310 
@@ -45,7 +45,6 @@ def part2():
 	# Yes, this closes the TCP connection between the client and the server. 
 	# When the connection is terminated, it causes TCP in the client to send a TCP 
 	# message to the TCP in the server. 
-	print(type(s1))
 	return s1
 
 def part3(s1: socket) -> socket:
@@ -125,15 +124,15 @@ def part5(s3,modifiedMessage,ServerPortfffff):
 
 
 def main(): 
-    return 
+    skt1 = part2()
+    skt2 = part3(skt1)
+    skt3,message,ServerPortfffff = part4(skt2)
+    p5 = part5(skt3,message,ServerPortfffff)
+    return p5
 
 
 if __name__ == "__main__": 
-	skt1 = part2()
-	skt2 = part3(skt1)
-	skt3,message,ServerPortfffff = part4(skt2)
-	part5(skt3,message,ServerPortfffff)
-	
+	main()
  
 	# CLOSE SOCKETS HERE .close() OR USE WITH STATEMENTS IN FUNCTIONS 
  
