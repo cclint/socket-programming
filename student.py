@@ -4,6 +4,8 @@ from socket import *
 import random
 import time
 
+
+
 # In this client-server program, the server is the robot and
 # the student is the client
 
