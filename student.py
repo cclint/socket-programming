@@ -5,7 +5,6 @@ import random
 import time
 
 
-
 # In this client-server program, the server is the robot and
 # the student is the client
 
@@ -14,8 +13,8 @@ import time
 # serverName = '25.3.242.102' # Hamachi
 serverName = input("Pleaser enter the server IP: ")
 blazerid = "clint93"
-#hostname = socket.gethostname()
-#ip_address = socket.gethostbyname(hostname)
+# hostname = socket.gethostname()
+# ip_address = socket.gethostbyname(hostname)
 HOST = ""  # Symbolic name meaning all available interfaces
 serverPort = 3310
 
@@ -135,7 +134,7 @@ def part5(s3, modifiedMessage, ServerPortfffff):
     print("Finished")
 
 
-def main(): # entry point of the program
+def main():  # entry point of the program
     socket_1 = part2()
     socket_2 = part3(socket_1)
     socket_3, message, ServerPortfffff = part4(socket_2)
